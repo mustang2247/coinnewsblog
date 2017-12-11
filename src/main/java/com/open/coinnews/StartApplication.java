@@ -11,10 +11,10 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
 @EnableScheduling
-public class RootApplication {
+public class StartApplication {
 
     public static void main(String [] args) {
-        SpringApplication.run(RootApplication.class, args);
+        SpringApplication.run(StartApplication.class, args);
     }
 
     @Bean
