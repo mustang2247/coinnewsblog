@@ -12,7 +12,7 @@ import java.lang.reflect.Method;
 import java.util.UUID;
 
 /**
- * Created by zsl-pc on 2016/9/7.
+ * token拦截器
  */
 @Configuration
 public class TokenInterceptor extends HandlerInterceptorAdapter {

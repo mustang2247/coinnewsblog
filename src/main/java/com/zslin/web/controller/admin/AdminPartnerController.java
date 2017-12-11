@@ -29,12 +29,9 @@ import javax.servlet.http.HttpServletRequest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 
-/**
- * Created by 钟述林 393156105@qq.com on 2016/10/20 14:35.
- */
 @Controller
 @RequestMapping(value = "admin/partner")
-@AdminAuth(name="团队管理", orderNum=1, psn="系统管理", pentity=0, porderNum=20)
+@AdminAuth(name = "团队管理", orderNum = 1, psn = "系统管理", pentity = 0, porderNum = 20)
 public class AdminPartnerController {
 
     @Autowired
@@ -49,18 +46,20 @@ public class AdminPartnerController {
     @Autowired
     private UserRoleServiceImpl userRoleServiceImpl;
 
-    /** 列表 */
-    @AdminAuth(name = "成员列表", orderNum = 1, icon="icon-list")
-    @RequestMapping(value="list", method= RequestMethod.GET)
+    /**
+     * 列表
+     */
+    @AdminAuth(name = "成员列表", orderNum = 1, icon = "icon-list")
+    @RequestMapping(value = "list", method = RequestMethod.GET)
     public String list(Model model, Integer page, HttpServletRequest request) {
         Page<Partner> datas = partnerService.findAll(new ParamFilterTools<Partner>().buildSpecification(model, request), PageableTools.basicPage(page));
         model.addAttribute("datas", datas);
         return "admin/partner/list";
     }
 
-    @Token(flag=Token.READY)
-    @AdminAuth(name = "添加成员", orderNum = 2, icon="icon-plus")
-    @RequestMapping(value="add", method=RequestMethod.GET)
+    @Token(flag = Token.READY)
+    @AdminAuth(name = "添加成员", orderNum = 2, icon = "icon-plus")
+    @RequestMapping(value = "add", method = RequestMethod.GET)
     public String add(Model model, HttpServletRequest request) {
         Partner partner = new Partner();
         partner.setStatus("1");
@@ -68,37 +67,41 @@ public class AdminPartnerController {
         return "admin/partner/add";
     }
 
-    /** 添加POST */
-    @Token(flag=Token.CHECK)
-    @RequestMapping(value="add", method=RequestMethod.POST)
+    /**
+     * 添加POST
+     */
+    @Token(flag = Token.CHECK)
+    @RequestMapping(value = "add", method = RequestMethod.POST)
     public String add(Model model, Partner partner, HttpServletRequest request) {
-        if(TokenTools.isNoRepeat(request)) {
+        if (TokenTools.isNoRepeat(request)) {
             Integer orderNo = partnerService.findMaxOrderNo();
-            orderNo = orderNo==null||orderNo<=0?1:orderNo+1;
+            orderNo = orderNo == null || orderNo <= 0 ? 1 : orderNo + 1;
             partner.setCreateDate(new Date());
             partner.setOrderNo(orderNo);
 
             String username = partner.getUsername();
-            if(username!=null && !"".equalsIgnoreCase(username)) {
+            if (username != null && !"".equalsIgnoreCase(username)) {
                 User u = userService.findByUsername(username);
-                if(u!=null) {
-                    throw new SystemException("用户名【"+username+"】已经存在！");
+                if (u != null) {
+                    throw new SystemException("用户名【" + username + "】已经存在！");
                 } else {
                     u = new User();
                     try {
-                        u.setPassword(SecurityUtil.md5(username, "zslin_"+username));
+                        u.setPassword(SecurityUtil.md5(username, "zslin_" + username));
                     } catch (NoSuchAlgorithmException e) {
 //                        e.printStackTrace();
                     }
                     u.setCreateDate(new Date());
                     u.setNickname(partner.getRealName());
-                    u.setStatus(1); u.setUsername(username); u.setIsAdmin(0);
+                    u.setStatus(1);
+                    u.setUsername(username);
+                    u.setIsAdmin(0);
                     userService.save(u);
                     partner.setUserId(u.getId());
 
                     //为用户分配角色
                     Role role = roleService.findBySn("ROLE_PARTNER");
-                    if(role!=null) {
+                    if (role != null) {
                         userRoleServiceImpl.addOrDelete(u.getId(), role.getId());
                     }
 
@@ -110,18 +113,18 @@ public class AdminPartnerController {
         return "redirect:/admin/partner/list";
     }
 
-    @Token(flag=Token.READY)
-    @AdminAuth(name="修改成员", orderNum=3, type="2")
-    @RequestMapping(value="update/{id}", method=RequestMethod.GET)
+    @Token(flag = Token.READY)
+    @AdminAuth(name = "修改成员", orderNum = 3, type = "2")
+    @RequestMapping(value = "update/{id}", method = RequestMethod.GET)
     public String update(Model model, @PathVariable Integer id, HttpServletRequest request) {
         model.addAttribute("partner", partnerService.findOne(id));
         return "admin/partner/update";
     }
 
-    @Token(flag=Token.CHECK)
-    @RequestMapping(value="update/{id}", method=RequestMethod.POST)
+    @Token(flag = Token.CHECK)
+    @RequestMapping(value = "update/{id}", method = RequestMethod.POST)
     public String update(Model model, @PathVariable Integer id, Partner partner, HttpServletRequest request) {
-        if(TokenTools.isNoRepeat(request)) {
+        if (TokenTools.isNoRepeat(request)) {
             Partner p = partnerService.findOne(id);
             MyBeanUtils.copyProperties(partner, p, new String[]{"id", "userId", "username", "createDate"});
 
@@ -130,8 +133,8 @@ public class AdminPartnerController {
         return "redirect:/admin/partner/list";
     }
 
-    @AdminAuth(name="删除成员", orderNum=4, type="2")
-    @RequestMapping(value="delete/{id}", method=RequestMethod.POST)
+    @AdminAuth(name = "删除成员", orderNum = 4, type = "2")
+    @RequestMapping(value = "delete/{id}", method = RequestMethod.POST)
     public @ResponseBody
     String delete(@PathVariable Integer id) {
         try {
@@ -143,11 +146,12 @@ public class AdminPartnerController {
     }
 
     @RequestMapping("updateSort")
-    @AdminAuth(name="成员排序", orderNum=4, type="2")
-    public @ResponseBody String updateSort(Integer[] ids) {
+    @AdminAuth(name = "成员排序", orderNum = 4, type = "2")
+    public @ResponseBody
+    String updateSort(Integer[] ids) {
         try {
             int index = 1;
-            for(Integer id : ids) {
+            for (Integer id : ids) {
                 partnerService.updateOrderNo(index++, id);
             }
         } catch (Exception e) {
@@ -159,9 +163,9 @@ public class AdminPartnerController {
     @RequestMapping(value = "updateOwn")
     public String updateOwn(Model model, Partner partner, HttpServletRequest request) {
         String method = request.getMethod();
-        if(method.equalsIgnoreCase("get")) {
+        if (method.equalsIgnoreCase("get")) {
             AuthToken at = (AuthToken) request.getSession().getAttribute(AuthToken.SESSION_NAME);
-            if(at!=null) {
+            if (at != null) {
                 model.addAttribute("partner", partnerService.findByUsername(at.getUser().getUsername()));
             }
 
@@ -169,7 +173,7 @@ public class AdminPartnerController {
         } else {
             AuthToken at = (AuthToken) request.getSession().getAttribute(AuthToken.SESSION_NAME);
             Partner p = partnerService.findByUsername(at.getUser().getUsername());
-            if(p!=null) {
+            if (p != null) {
                 MyBeanUtils.copyProperties(partner, p, new String[]{"id", "status", "userId", "username", "createDate"});
                 partnerService.save(p);
             }

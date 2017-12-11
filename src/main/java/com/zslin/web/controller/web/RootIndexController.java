@@ -9,9 +9,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 
-/**
- * Created by zsl-pc on 2016/9/25.
- */
 @Controller
 public class RootIndexController {
 

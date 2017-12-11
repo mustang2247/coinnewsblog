@@ -7,9 +7,6 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.transaction.annotation.Transactional;
 
-/**
- * Created by 钟述林 393156105@qq.com on 2016/10/20 14:32.
- */
 public interface IPartnerService extends JpaRepository<Partner, Integer>, JpaSpecificationExecutor<Partner> {
 
     /** 通过用户名获取对象 */

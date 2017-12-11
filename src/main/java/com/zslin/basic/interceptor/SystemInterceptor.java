@@ -16,6 +16,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
+/**
+ * 拦截器
+ */
 @Configuration
 public class SystemInterceptor extends HandlerInterceptorAdapter {
 

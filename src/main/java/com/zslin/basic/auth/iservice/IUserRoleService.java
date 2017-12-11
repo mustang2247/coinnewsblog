@@ -7,9 +7,6 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-/**
- * Created by zsl-pc on 2016/9/1.
- */
 public interface IUserRoleService extends JpaRepository<UserRole, Integer> {
 
     @Query("SELECT ur.rid FROM UserRole ur WHERE ur.uid=:userId")

@@ -28,9 +28,6 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.UUID;
 
-/**
- * Created by zsl-pc on 2016/9/27.
- */
 @Controller
 @RequestMapping(value = "admin/article")
 @AdminAuth(name="文章管理", orderNum=1, psn="网站管理", pentity=0, porderNum=1)

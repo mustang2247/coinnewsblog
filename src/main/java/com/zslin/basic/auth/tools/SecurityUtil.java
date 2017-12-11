@@ -6,8 +6,6 @@ import java.security.NoSuchAlgorithmException;
 
 /**
  * 安全工具类，可以进行数据的加密和解密，并且可以完成对象的加密和解密
- * @author KongHao
- *
  */
 @SuppressWarnings("rawtypes")
 public class SecurityUtil {

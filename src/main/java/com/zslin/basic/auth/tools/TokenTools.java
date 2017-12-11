@@ -4,8 +4,6 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * 防重复提交的工具类
- * @author zslin.com 20160520
- *
  */
 public class TokenTools {
 	public static final String REP_SESSION_NAME = "isRepeat";

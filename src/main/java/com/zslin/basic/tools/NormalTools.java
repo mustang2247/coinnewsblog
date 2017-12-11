@@ -3,9 +3,6 @@ package com.zslin.basic.tools;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-/**
- * Created by zsl-pc on 2016/9/14.
- */
 public class NormalTools {
 
     public static String getFileType(String fileName) {

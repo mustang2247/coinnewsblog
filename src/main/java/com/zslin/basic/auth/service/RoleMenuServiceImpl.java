@@ -5,9 +5,6 @@ import com.zslin.basic.auth.model.RoleMenu;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-/**
- * Created by zsl-pc on 2016/9/7.
- */
 @Component
 public class RoleMenuServiceImpl {
 

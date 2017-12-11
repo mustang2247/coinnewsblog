@@ -17,9 +17,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-/**
- * Created by zsl-pc on 2016/9/7.
- */
 @Component
 public class UserServiceImpl {
 
@@ -66,6 +63,7 @@ public class UserServiceImpl {
 
             user.setPassword(SecurityUtil.md5(user.getUsername(), user.getPassword()));
             user.setStatus(1);
+            user.setIsAdmin(role.getId());
             userService.save(user);
             userRoleServiceImpl.addOrDelete(user.getId(), role.getId());
 

@@ -24,8 +24,6 @@ import java.util.List;
 
 /**
  * 角色管理Controller
- * @author zslin.com 20160513
- *
  */
 @Controller
 @RequestMapping(value="admin/role")

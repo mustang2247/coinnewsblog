@@ -9,9 +9,6 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-/**
- * Created by zsl-pc on 2016/9/1.
- */
 public interface IRoleMenuService extends JpaRepository<RoleMenu, Integer>, JpaSpecificationExecutor<Role> {
 
     @Query("SELECT rm.mid FROM RoleMenu rm WHERE rm.rid=:roleId")

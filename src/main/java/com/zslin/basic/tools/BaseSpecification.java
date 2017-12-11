@@ -8,7 +8,7 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 /**
- * 基本规格
+ * 基本规则
  */
 public class BaseSpecification<T> implements Specification<T> {
 

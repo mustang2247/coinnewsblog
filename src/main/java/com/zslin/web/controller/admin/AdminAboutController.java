@@ -11,9 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 
-/**
- * Created by zsl-pc on 2016/10/8.
- */
 @Controller
 @RequestMapping(value = "admin/about")
 @AdminAuth(name="关于", orderNum=1, psn="网站管理", pentity=0, porderNum=1)

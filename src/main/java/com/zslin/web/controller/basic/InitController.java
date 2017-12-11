@@ -17,8 +17,6 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * 系统初始化Controller
- * @author zslin.com 20160520
- *
  */
 @Controller
 @RequestMapping

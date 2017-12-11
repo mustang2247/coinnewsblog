@@ -7,9 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 
-/**
- * Created by zsl-pc on 2016/10/10.
- */
 @Controller
 public class AppErrorController implements ErrorController {
 

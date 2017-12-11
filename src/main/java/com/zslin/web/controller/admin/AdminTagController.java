@@ -19,9 +19,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 
-/**
- * Created by zsl-pc on 2016/9/27.
- */
 @Controller
 @RequestMapping(value = "admin/tag")
 @AdminAuth(name="标签管理", orderNum=3, psn="网站管理", pentity=0, porderNum=1)

@@ -7,9 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by zsl-pc on 2016/9/16.
- */
 public class ParamFilterTools<T> {
 
     //参数名前缀

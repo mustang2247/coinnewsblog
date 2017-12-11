@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import java.io.File;
 
 /**
- * Created by zsl-pc on 2016/9/11.
+ * 文件上传
  */
 @Configuration
 @Component

@@ -7,9 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-/**
- * Created by zsl-pc on 2016/8/31.
- */
 public interface IUserService extends JpaRepository<User, Integer>, JpaSpecificationExecutor<User> {
 
     public User findByUsername(String username);

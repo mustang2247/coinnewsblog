@@ -1,7 +1,7 @@
 package com.zslin.basic.exception;
 
 /**
- * Created by zsl-pc on 2016/9/8.
+ * 异常处理类
  */
 public class ErrorInfo<T> {
     public static final String OK = "0";

@@ -25,7 +25,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 /**
- * Created by zsl-pc on 2016/9/6.
+ * 用户管理
  */
 @Controller
 @RequestMapping(value="admin/user")

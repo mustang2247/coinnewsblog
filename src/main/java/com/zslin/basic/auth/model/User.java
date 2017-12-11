@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 /**
- * Created by zsl-pc on 2016/8/31.
+ * 用户
  */
 @Entity
 @Table(name="a_user")

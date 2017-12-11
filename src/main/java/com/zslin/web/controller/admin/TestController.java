@@ -2,9 +2,6 @@ package com.zslin.web.controller.admin;
 
 import javax.servlet.http.HttpServletRequest;
 
-/**
- * Created by zsl-pc on 2016/9/9.
- */
 public class TestController {
 
     public String index(HttpServletRequest request) {

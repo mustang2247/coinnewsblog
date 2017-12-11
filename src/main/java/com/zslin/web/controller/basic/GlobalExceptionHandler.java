@@ -8,9 +8,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import javax.servlet.http.HttpServletRequest;
 
-/**
- * Created by zsl-pc on 2016/9/8.
- */
 @ControllerAdvice
 public class GlobalExceptionHandler {
 

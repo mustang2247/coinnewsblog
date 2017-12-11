@@ -19,9 +19,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 
-/**
- * Created by 钟述林 393156105@qq.com on 2016/11/11 23:33.
- */
 @Controller
 @RequestMapping(value = "admin/topPic")
 @AdminAuth(name="页头图片管理", orderNum=3, psn="网站管理", pentity=0, porderNum=1)

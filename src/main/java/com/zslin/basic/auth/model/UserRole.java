@@ -3,7 +3,7 @@ package com.zslin.basic.auth.model;
 import javax.persistence.*;
 
 /**
- * Created by zsl-pc on 2016/9/1.
+ * 用户角色
  */
 @Entity
 @Table(name="a_user_role")

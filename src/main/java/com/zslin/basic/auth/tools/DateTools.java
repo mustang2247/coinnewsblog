@@ -6,7 +6,6 @@ import java.util.Date;
 
 /**
  * 日期工具类
- * Created by zsl-pc on 2016/9/21.
  */
 public class DateTools {
 

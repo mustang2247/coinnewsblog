@@ -3,7 +3,7 @@ package com.zslin.basic.auth.model;
 import javax.persistence.*;
 
 /**
- * Created by zsl-pc on 2016/9/1.
+ * 菜单
  */
 @Entity
 @Table(name="a_menu")

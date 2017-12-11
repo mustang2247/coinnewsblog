@@ -21,9 +21,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 
-/**
- * Created by zsl-pc on 2016/10/1.
- */
 @Controller
 @RequestMapping(value = "web/article")
 public class WebArticleController {

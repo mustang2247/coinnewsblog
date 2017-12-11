@@ -11,9 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-/**
- * Created by zsl-pc on 2016/9/27.
- */
 @Service("categoryService")
 public interface ICategoryService extends JpaRepository<Category, Integer>, JpaSpecificationExecutor<Category> {
 

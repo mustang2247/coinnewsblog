@@ -6,9 +6,6 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-/**
- * Created by zsl-pc on 2016/9/1.
- */
 public interface IRoleService extends JpaRepository<Role, Integer> {
 
     public Role findBySn(String sn);

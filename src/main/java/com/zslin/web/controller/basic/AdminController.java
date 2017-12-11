@@ -12,9 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 
-/**
- * Created by zsl-pc on 2016/9/7.
- */
 @Controller
 @RequestMapping(value = "admin")
 public class AdminController {

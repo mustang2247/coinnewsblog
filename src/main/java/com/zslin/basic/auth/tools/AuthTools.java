@@ -20,8 +20,6 @@ import java.util.Set;
 /**
  * 权限管理工具类
  *  - 主要用于通过Annotation自动生成菜单
- * @author zslin.com 20160513
- *
  */
 public class AuthTools {
 

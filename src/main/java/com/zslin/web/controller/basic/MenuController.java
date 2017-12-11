@@ -24,8 +24,6 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * 菜单管理Controller
- * @author zsl-pc 20160511
- *
  */
 @Controller
 @RequestMapping(value="admin/menu")

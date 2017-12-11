@@ -25,9 +25,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 
-/**
- * Created by 钟述林 393156105@qq.com on 2016/10/17 9:12.
- */
 @Controller
 @RequestMapping(value = "admin/comment")
 @AdminAuth(name="点评管理", orderNum=7, psn="网站管理", pentity=0, porderNum=1)

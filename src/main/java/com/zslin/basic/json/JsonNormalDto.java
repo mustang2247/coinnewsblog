@@ -1,8 +1,5 @@
 package com.zslin.basic.json;
 
-/**
- * Created by zsl-pc on 2016/9/19.
- */
 public class JsonNormalDto {
 
     private Integer resCode;

@@ -14,8 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * 系统配置
- * @author zslin.com 20160519
- *
  */
 @Controller
 @RequestMapping(value="admin/appConfig")

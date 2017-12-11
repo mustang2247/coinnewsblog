@@ -7,9 +7,6 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.transaction.annotation.Transactional;
 
-/**
- * Created by zsl-pc on 2016/9/27.
- */
 public interface INoticeService extends JpaRepository<Notice, Integer>, JpaSpecificationExecutor<Notice> {
 
     @Query("SELECT MAX(n.orderNo) FROM Notice n ")

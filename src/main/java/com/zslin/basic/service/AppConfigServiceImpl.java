@@ -9,9 +9,6 @@ import org.springframework.stereotype.Component;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-/**
- * Created by zsl-pc on 2016/9/7.
- */
 @Component
 public class AppConfigServiceImpl {
 

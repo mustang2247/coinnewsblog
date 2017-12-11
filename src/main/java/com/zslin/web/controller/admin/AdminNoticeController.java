@@ -19,9 +19,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 
-/**
- * Created by zsl-pc on 2016/9/27.
- */
 @Controller
 @RequestMapping(value = "admin/notice")
 @AdminAuth(name="公告管理", orderNum=4, psn="网站管理", pentity=0, porderNum=1)
