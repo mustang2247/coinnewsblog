@@ -33,21 +33,25 @@ public class LoginController {
     @Autowired
     private MenuServiceImpl menuServiceImpl;
 
-    /** 登陆 */
-    @RequestMapping(value="login")
+    /**
+     * 登陆
+     */
+    @RequestMapping(value = "login")
     public String login(Model model, HttpServletRequest request) {
         String method = request.getMethod(); //获取请求方式，GET或POST
         try {
-            if("get".equalsIgnoreCase(method)) {
+            if ("get".equalsIgnoreCase(method)) {
                 return "admin/login";
-            } else if("post".equalsIgnoreCase(method)) {
+            } else if ("post".equalsIgnoreCase(method)) {
                 String errMsg = null;
                 String username = request.getParameter("username"); //用户名
                 String password = request.getParameter("password"); //密码
                 User u = userService.findByUsername(username);
-                if(u==null || u.getStatus()==null || u.getStatus()!=1) {errMsg = username+"不存在或已停用";}
-                else if(!u.getPassword().equals(SecurityUtil.md5(username, password))) {errMsg = "密码输入不正确";}
-                else {
+                if (u == null || u.getStatus() == null || u.getStatus() != 1) {
+                    errMsg = username + "不存在或已停用";
+                } else if (!u.getPassword().equals(SecurityUtil.md5(username, password))) {
+                    errMsg = "密码输入不正确";
+                } else {
                     AuthToken at = new AuthToken();
                     at.setLogin_ip(request.getRemoteAddr());
                     at.setLogin_time(new Date());
@@ -61,7 +65,7 @@ public class LoginController {
                     request.getSession().setAttribute(AuthToken.SESSION_NAME, at);
 //					request.getSession().setAttribute("login_user", u);
                 }
-                if(errMsg!=null && !"".equals(errMsg)) {
+                if (errMsg != null && !"".equals(errMsg)) {
                     model.addAttribute("errMsg", errMsg);
                     return "admin/login";
                 } else {
@@ -74,8 +78,10 @@ public class LoginController {
         return "admin/login";
     }
 
-    /** 设置当前的菜单Id */
-    @RequestMapping(value="setCurrentMenuId", method= RequestMethod.POST)
+    /**
+     * 设置当前的菜单Id
+     */
+    @RequestMapping(value = "setCurrentMenuId", method = RequestMethod.POST)
     public @ResponseBody
     String setCurrentMenuId(Integer ppmId, Integer pmId, Integer mid, HttpServletRequest request) {
         HttpSession session = request.getSession();
@@ -85,9 +91,12 @@ public class LoginController {
         return "1";
     }
 
-    /** 退出 */
-    @RequestMapping(value="logout", method=RequestMethod.POST)
-    public @ResponseBody String logout(HttpServletRequest request) {
+    /**
+     * 退出
+     */
+    @RequestMapping(value = "logout", method = RequestMethod.POST)
+    public @ResponseBody
+    String logout(HttpServletRequest request) {
         HttpSession session = request.getSession();
         session.removeAttribute(AuthToken.SESSION_NAME);
         return "1";
