@@ -58,6 +58,9 @@ public class WebHomeController {
         List<TopPic> pics = topPicService.findAll(Specifications.where(new BaseSpecification<>(new SearchCriteria("status", "eq", "1"))), SortTools.basicSort("asc", "orderNo"));
         model.addAttribute("topPics", pics);
 
+        if (spe == null){
+            spe = Specifications.where(new BaseSpecification<>(new SearchCriteria("isShow", BaseSpecification.EQUAL, 1)));
+        }
         Page<Article> datas = articleService.findAll(spe, PageableTools.basicPage(page, "desc", "createDate"));
         model.addAttribute("datas", datas);
         return "web/index";

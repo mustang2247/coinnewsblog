@@ -57,15 +57,19 @@ public class PublicController {
     @RequestMapping(value = "hotArt", method = RequestMethod.GET)
     public Page<Article> hotArt(Integer length) {
         length = (length ==null || length<=0)?10:length; //默认为10
-        Page<Article> artList = articleService.findAll(PageableTools.basicPage(0, length, "desc", "readCount"));
+
+        Specifications<Article> spe = Specifications.where(new BaseSpecification<>(new SearchCriteria("isShow", BaseSpecification.EQUAL, 1)));
+        Page<Article> artList = articleService.findAll(spe, PageableTools.basicPage(0, length, "desc", "readCount"));
         return artList;
     }
 
-    /** 获取最新发布的几条文章 */
+    /** 最新文章-获取最新发布的几条文章 */
     @RequestMapping(value = "newArt", method = RequestMethod.GET)
     public Page<Article> newArt(Integer length) {
         length = (length ==null || length<=0)?10:length; //默认为10
-        Page<Article> artList = articleService.findAll(PageableTools.basicPage(0, length, "desc", "createDate"));
+
+        Specifications<Article> spe = Specifications.where(new BaseSpecification<>(new SearchCriteria("isShow", BaseSpecification.EQUAL, 1)));
+        Page<Article> artList = articleService.findAll(spe, PageableTools.basicPage(0, length, "desc", "createDate"));
         return artList;
     }
 
