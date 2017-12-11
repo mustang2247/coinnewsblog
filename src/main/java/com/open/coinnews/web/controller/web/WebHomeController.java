@@ -38,19 +38,21 @@ public class WebHomeController {
     @Autowired
     private ITopPicService topPicService;
 
-    /** 网站首页 */
+    /**
+     * 网站首页
+     */
     @RequestMapping(value = {"", "/"}, method = RequestMethod.GET)
     public String index(Model model, Integer userId, Integer cateId, String tag, String condition, Integer page) {
         Specifications<Article> spe = null;
-        if(userId!=null && userId>0) {
+        if (userId != null && userId > 0) {
             spe = Specifications.where(new BaseSpecification<>(new SearchCriteria("userId", "eq", userId)));
-        } else if(cateId!=null && cateId>0) {
+        } else if (cateId != null && cateId > 0) {
             spe = Specifications.where(new BaseSpecification<>(new SearchCriteria("cateId", "eq", cateId)));
             model.addAttribute("category", categoryService.findOne(cateId)); //获取当前分类
-        } else if(tag!=null && !"".equals(tag.trim())) {
+        } else if (tag != null && !"".equals(tag.trim())) {
             spe = Specifications.where(new BaseSpecification<>(new SearchCriteria("tags", "like", tag)));
         }
-        if(condition!=null && !"".equalsIgnoreCase(condition)) {
+        if (condition != null && !"".equalsIgnoreCase(condition)) {
             spe = Specifications.where(new BaseSpecification<>(new SearchCriteria("title", "like", condition)));
             spe = spe.or(new BaseSpecification<>(new SearchCriteria("mdContent", "like", condition)));
         }
@@ -58,7 +60,7 @@ public class WebHomeController {
         List<TopPic> pics = topPicService.findAll(Specifications.where(new BaseSpecification<>(new SearchCriteria("status", "eq", "1"))), SortTools.basicSort("asc", "orderNo"));
         model.addAttribute("topPics", pics);
 
-        if (spe == null){
+        if (spe == null) {
             spe = Specifications.where(new BaseSpecification<>(new SearchCriteria("isShow", BaseSpecification.EQUAL, 1)));
         }
         Page<Article> datas = articleService.findAll(spe, PageableTools.basicPage(page, "desc", "createDate"));
@@ -66,7 +68,9 @@ public class WebHomeController {
         return "web/index";
     }
 
-    /** 关于 */
+    /**
+     * 关于
+     */
     @RequestMapping(value = "about", method = RequestMethod.GET)
     public String about(Model model) {
         model.addAttribute("about", aboutService.findOne(1));
