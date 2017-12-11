@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
+/**
+ * 登陆拦截器
+ */
 public class AuthInterceptor extends HandlerInterceptorAdapter {
 
     @Override
