@@ -121,6 +121,15 @@
         </dependency>
     </dependencies>
 
+    <!--<build>-->
+        <!--<plugins>-->
+            <!--<plugin>-->
+                <!--<groupId>org.springframework.boot</groupId>-->
+                <!--<artifactId>spring-boot-maven-plugin</artifactId>-->
+            <!--</plugin>-->
+        <!--</plugins>-->
+    <!--</build>-->
+
     <build>
         <finalName>gameversionservice</finalName>
         <plugins>
@@ -151,6 +160,20 @@
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.0.1</version>
+                <configuration>
+                    <nonFilteredFileExtensions>
+                        <nonFilteredFileExtension>woff</nonFilteredFileExtension>
+                        <nonFilteredFileExtension>eot</nonFilteredFileExtension>
+                        <nonFilteredFileExtension>ttf</nonFilteredFileExtension>
+                        <nonFilteredFileExtension>svg</nonFilteredFileExtension>
+                    </nonFilteredFileExtensions>
+                </configuration>
+            </plugin>
         </plugins>
 
         <resources>
@@ -161,7 +184,11 @@
                     <exclude>application.properties</exclude>
                     <exclude>application-dev.properties</exclude>
                     <exclude>application-test.properties</exclude>
-                    <exclude>application-qcloud.properties</exclude>
+                    <exclude>application-online.properties</exclude>
+                    <exclude>**/*.woff</exclude>
+                    <exclude>**/*.ttf</exclude>
+                    <exclude>**/*.eot</exclude>
+                    <exclude>**/*.svg</exclude>
                 </excludes>
             </resource>
 
@@ -171,6 +198,10 @@
                 <includes>
                     <include>application-${profileActive}.properties</include>
                     <include>application.properties</include>
+                    <include>**/*.woff</include>
+                    <include>**/*.ttf</include>
+                    <include>**/*.eot</include>
+                    <include>**/*.svg</include>
                 </includes>
             </resource>
         </resources>
@@ -200,13 +231,13 @@
         </profile>
 
         <profile>
-            <id>qcloud</id>
+            <id>online</id>
             <properties>
-                <envdir>qcloud/</envdir>
+                <envdir>online/</envdir>
                 <log4j.level>INFO</log4j.level>
                 <log4j.appender>dailyLog</log4j.appender>
                 <log.dir>./logs/coinnewsblog.log</log.dir>
-                <profileActive>qcloud</profileActive>
+                <profileActive>online</profileActive>
             </properties>
         </profile>
 
