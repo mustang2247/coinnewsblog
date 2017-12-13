@@ -60,7 +60,7 @@
                             &nbsp;<span title="标签" class="fa fa-tags article-tags" th:text="' '+${article.tags}"></span>
                         </p>
                     </div>
-                    <div class="container-fluid" style="padding:10px 0px; color:#aaa;">本文所属【<a href="http://www.zslin.com">黑暗世界</a>】：<span th:text="'http://www.zslin.com/web/article/detail/'+${article.id}" th:remove="tag"></span></div>
+                    <div class="container-fluid" style="padding:10px 0px; color:#aaa;">本文所属【<a href="/">黑暗世界</a>】：<span th:text="'aaaaaaaaaa'+${article.id}" th:remove="tag"></span></div>
 
                     <a th:if="${article.videoUrl ne null and article.videoUrl ne ''}" th:href="${article.videoUrl}" th:title="${article.title}+' - 知识林'"
                        th:style="'display:block;width:100%;height:'+${article.videoHeight eq null or article.videoHeight eq '' ? '500px':article.videoHeight}"
@@ -70,34 +70,34 @@
                     <script type="text/javascript">
                         flowplayer("player", "/flowplayer/flowplayer-3.2.18.swf", {clip:{autoPlay:false,autoBuffering: true}});
                     </script>
-                    <div class="container-fluid" style="padding:10px 0px; color:#aaa;">本文所属【<a href="http://www.zslin.com">黑暗世界</a>】：<span th:text="'http://www.zslin.com/web/article/detail/'+${article.id}" th:remove="tag"></span></div>
+                    <div class="container-fluid" style="padding:10px 0px; color:#aaa;">本文所属【<a href="/">黑暗世界</a>】：<span th:text="'aaaaaaaaaa'+${article.id}" th:remove="tag"></span></div>
                     <!--<div id="editormd-view">
                         <textarea style="display:none;" th:text="${article.content}"></textarea>
                     </div>-->
 
                     <div class="row container-fluid hidden-xs hidden-sm" th:if="${session.appConfig.showPay eq 1 and (partner eq null or partner.showPay eq 1)}">
                         <div class="alert alert-danger">
-                            <p class="text-center" style="padding-bottom:15px;">如果您觉得我的文章不错，对您有所帮助，可以通过“微信支付”或“支付宝”对我加以鼓励！</p>
-                            <div class="row" th:if="${partner eq null}">
-                                <div class="col-md-6 col-sm-12 col-xs-12 text-right">
-                                    <img src="http://img.zslin.com/wx-pay.png"/>
-                                    <p class="text-right" style="padding-right:75px;">微信扫一扫</p>
-                                </div>
-                                <div class="col-md-6 col-sm-12 col-xs-12 text-left">
-                                    <img src="http://img.zslin.com/zfb-pay.png"/>
-                                    <p class="text-left" style="padding-left:75px;">支付宝扫一扫</p>
-                                </div>
-                            </div>
-                            <div class="row" th:if="${partner ne null}">
-                                <div class="col-md-6 col-sm-12 col-xs-12 text-right">
-                                    <img th:src="${partner.wxImg ne NULL and partner.wxImg ne '' ? partner.wxImg : 'http://img.zslin.com/wx-pay.png'}"/>
-                                    <p class="text-right" style="padding-right:75px;">微信扫一扫</p>
-                                </div>
-                                <div class="col-md-6 col-sm-12 col-xs-12 text-left">
-                                    <img th:src="${partner.zfbImg ne NULL and partner.zfbImg ne '' ? partner.zfbImg : 'http://img.zslin.com/zfb-pay.png'}"/>
-                                    <p class="text-left" style="padding-left:75px;">支付宝扫一扫</p>
-                                </div>
-                            </div>
+                            <!--<p class="text-center" style="padding-bottom:15px;">如果您觉得我的文章不错，对您有所帮助，可以通过“微信支付”或“支付宝”对我加以鼓励！</p>-->
+                            <!--<div class="row" th:if="${partner eq null}">-->
+                                <!--<div class="col-md-6 col-sm-12 col-xs-12 text-right">-->
+                                    <!--<img src="http://img.zslin.com/wx-pay.png"/>-->
+                                    <!--<p class="text-right" style="padding-right:75px;">微信扫一扫</p>-->
+                                <!--</div>-->
+                                <!--<div class="col-md-6 col-sm-12 col-xs-12 text-left">-->
+                                    <!--<img src="http://img.zslin.com/zfb-pay.png"/>-->
+                                    <!--<p class="text-left" style="padding-left:75px;">支付宝扫一扫</p>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="row" th:if="${partner ne null}">-->
+                                <!--<div class="col-md-6 col-sm-12 col-xs-12 text-right">-->
+                                    <!--<img th:src="${partner.wxImg ne NULL and partner.wxImg ne '' ? partner.wxImg : 'http://img.zslin.com/wx-pay.png'}"/>-->
+                                    <!--<p class="text-right" style="padding-right:75px;">微信扫一扫</p>-->
+                                <!--</div>-->
+                                <!--<div class="col-md-6 col-sm-12 col-xs-12 text-left">-->
+                                    <!--<img th:src="${partner.zfbImg ne NULL and partner.zfbImg ne '' ? partner.zfbImg : 'http://img.zslin.com/zfb-pay.png'}"/>-->
+                                    <!--<p class="text-left" style="padding-left:75px;">支付宝扫一扫</p>-->
+                                <!--</div>-->
+                            <!--</div>-->
                         </div>
                     </div>
                 </div>

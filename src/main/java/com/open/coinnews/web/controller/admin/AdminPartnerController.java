@@ -87,7 +87,7 @@ public class AdminPartnerController {
                 } else {
                     u = new User();
                     try {
-                        u.setPassword(SecurityUtil.md5(username, "zslin_" + username));
+                        u.setPassword(SecurityUtil.md5(username, "blog_" + username));
                     } catch (NoSuchAlgorithmException e) {
 //                        e.printStackTrace();
                     }

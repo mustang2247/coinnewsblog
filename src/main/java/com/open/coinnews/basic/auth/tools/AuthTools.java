@@ -38,7 +38,7 @@ public class AuthTools {
 	public void buildSystemMenu(MenuServiceImpl menuServiceImpl) {
 		try {
 			//指定需要检索Annotation的路径，可以使用通配符
-			String pn = "com/zslin/*/controller/*/*Controller.class";
+			String pn = "com/open/coinnews/*/controller/*/*Controller.class";
 			//1、创建ResourcePatternResolver资源对象
 			ResourcePatternResolver rpr = new PathMatchingResourcePatternResolver();
 			//2、获取路径中的所有资源对象
