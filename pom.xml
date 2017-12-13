@@ -234,7 +234,6 @@
                     <exclude>application.properties</exclude>
                     <exclude>application-dev.properties</exclude>
                     <exclude>application-prod.properties</exclude>
-                    <!--<exclude>application-docker.properties</exclude>-->
                     <exclude>**/*.woff</exclude>
                     <exclude>**/*.ttf</exclude>
                     <exclude>**/*.eot</exclude>
@@ -279,17 +278,6 @@
                 <profileActive>prod</profileActive>
             </properties>
         </profile>
-
-        <!--<profile>-->
-            <!--<id>docker</id>-->
-            <!--<properties>-->
-                <!--<envdir>docker/</envdir>-->
-                <!--<log4j.level>INFO</log4j.level>-->
-                <!--<log4j.appender>dailyLog</log4j.appender>-->
-                <!--<log.dir>./logs/coinnewsblog.log</log.dir>-->
-                <!--<profileActive>docker</profileActive>-->
-            <!--</properties>-->
-        <!--</profile>-->
 
     </profiles>
 
