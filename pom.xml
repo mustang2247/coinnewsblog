@@ -19,8 +19,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <!--<thymeleaf.version>3.0.9.RELEASE</thymeleaf.version>-->
-        <!--<thymeleaf-layout-dialect.version>2.0.0</thymeleaf-layout-dialect.version>-->
         <mysql.version>5.1.44</mysql.version>
 
         <docker.image.prefix>mustang</docker.image.prefix>
@@ -122,15 +120,6 @@
             <version>1.2.40</version>
         </dependency>
     </dependencies>
-
-    <!--<build>-->
-        <!--<plugins>-->
-            <!--<plugin>-->
-                <!--<groupId>org.springframework.boot</groupId>-->
-                <!--<artifactId>spring-boot-maven-plugin</artifactId>-->
-            <!--</plugin>-->
-        <!--</plugins>-->
-    <!--</build>-->
 
     <build>
         <finalName>coinnewsblog</finalName>
@@ -234,6 +223,7 @@
                     <exclude>application.properties</exclude>
                     <exclude>application-dev.properties</exclude>
                     <exclude>application-prod.properties</exclude>
+                    <exclude>application-qc.properties</exclude>
                     <exclude>**/*.woff</exclude>
                     <exclude>**/*.ttf</exclude>
                     <exclude>**/*.eot</exclude>
@@ -276,6 +266,17 @@
                 <log4j.appender>dailyLog</log4j.appender>
                 <log.dir>./logs/coinnewsblog.log</log.dir>
                 <profileActive>prod</profileActive>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>qc</id>
+            <properties>
+                <envdir>qc/</envdir>
+                <log4j.level>INFO</log4j.level>
+                <log4j.appender>dailyLog</log4j.appender>
+                <log.dir>./logs/coinnewsblog.log</log.dir>
+                <profileActive>qc</profileActive>
             </properties>
         </profile>
 
